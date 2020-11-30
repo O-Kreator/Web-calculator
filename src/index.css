@@ -1,0 +1,184 @@
+/* Variables */
+
+body {
+  --color-text: rgb(40, 30, 30);
+  --color-text-sub: rgba(40, 30, 30, .7);
+  --color-text-theme: rgb(255, 255, 255);
+  --color-text-disabled: rgba(40, 30, 30, .3);
+  --color-background: rgb(233, 230, 232);
+  --color-button: rgba(255, 255, 255, .3);
+  --color-button-strong: rgba(255, 255, 255, .7);
+  --color-button-theme: rgb(235, 100, 120);
+  --color-button-hover: rgba(40, 30, 30, .1);
+  --color-inner-shadow: rgba(40, 30, 30, .1);
+
+  --space-r: 1rem;
+  --space-s: .5rem;
+  --space-xs: .25rem;
+  --space-xxs: .1rem;
+
+  --time-short: .1s;
+  --time-long: .2s;
+
+  --shadow-inner: 0 0 0 var(--space-xs) var(--color-inner-shadow) inset;
+}
+
+
+/* Reset */
+
+* {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+html, body {
+  margin: 0;
+}
+
+html, body, input, textarea, button {
+  font-size: 24px;
+  font-weight: 300;
+  font-family: "DM Mono", monospace;
+}
+
+body {
+  background-color: var(--color-background);
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+
+/* Positioning center */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Content Wrapper */
+
+#contentWrapper {
+
+}
+
+
+
+/* Text Inputs */
+
+#textSub, #textMain {
+  display: block;
+  margin: 0;
+  width: 100%;
+
+  text-align: right;
+
+  border: 0;
+  background: transparent;
+}
+
+#textSub {
+  font-size: .7rem;
+  color: var(--color-text-sub);
+}
+
+#textMain {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+
+/* Memory Buttons */
+
+#mainMemoryBtnWrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: var(--space-xxs);
+
+  margin-top: var(--space-r);
+}
+
+#mainMemoryBtnWrapper > button {
+  position: relative;
+  top: 0;
+  padding: var(--space-s) var(--space-r);
+  border: 0;
+  background: transparent;
+
+  color: var(--color-text);
+  font-size: .75rem;
+
+  transition-property: color, font-size, top, padding, box-shadow;
+  transition-duration: var(--time-short);
+}
+
+#mainMemoryBtnWrapper > button:not(:disabled):hover,
+#mainMemoryBtnWrapper > button:not(:disabled):focus {
+  box-shadow: var(--shadow-inner);
+}
+
+#mainMemoryBtnWrapper > button:not(:disabled):active {
+  top: var(--space-xxs);
+}
+
+#mainMemoryBtnWrapper > button:disabled {
+  color: var(--color-text-disabled);
+}
+
+
+/* Main Buttons */
+
+#mainBtnWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: var(--space-xxs);
+  row-gap: var(--space-xxs);
+
+  margin-top: var(--space-xxs);
+}
+
+#mainBtnWrapper > button {
+  position: relative;
+  top: 0;
+  padding: var(--space-s) var(--space-s);
+  border: 0;
+  background-color: var(--color-button);
+
+  transition-property: color, font-size, top, padding, background-color, box-shadow;
+  transition-duration: var(--time-short);
+}
+
+#mainBtnWrapper > button[id^=num],
+button#toggleSignBtn,
+button#dotBtn {
+  background-color: var(--color-button-strong);
+}
+
+#mainBtnWrapper > button#equalBtn {
+  color: var(--color-text-theme);
+  background-color: var(--color-button-theme);
+}
+
+#mainBtnWrapper > button:not(:disabled):hover,
+#mainBtnWrapper > button:not(:disabled):focus {
+  background-color: var(--color-button-hover);
+  box-shadow: var(--shadow-inner);
+}
+
+#mainBtnWrapper > button:not(:disabled):active {
+  top: var(--space-xxs);
+}
+
+#mainBtnWrapper > button:disabled {
+  color: var(--color-text-disabled);
+}
