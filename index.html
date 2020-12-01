@@ -15,8 +15,8 @@
     </nav>
     <div id="contentWrapper">
       <main id="mainWrapper">
-        <input id="textSub" size="1" type="text">
-        <input id="textMain" size="1" type="text">
+        <input id="textSub" value="21 + 19 + 2" size="1" type="text">
+        <input id="textMain" value="42" size="1" type="text">
         <div id="mainMemoryBtnWrapper">
           <button id="memoryClearBtn" disabled>MC</button>
           <button id="memoryReadBtn" disabled>MR</button>
@@ -53,13 +53,25 @@
       </main>
       <aside id="asideWrapper">
         <nav id="asideNav">
-  
+          <button id="historyTabBtn" class="actived">
+            History
+            <span class="activeIndicator"></span>
+          </button>
+          <button id="memoryTabBtn">
+            Memory
+            <span class="activeIndicator"></span>
+          </button>
         </nav>
         <section id="historyWrapper">
-  
+          <button class="historyItem">
+            <p class="historyTextSub">2 + 3</p>
+            <p class="historyTextMain">5</p>
+          </button>
         </section>
         <section id="memoryWrapper">
-  
+          <button class="memoryItem">
+            <p class="memoryText">5</p>
+          </button>
         </section>
       </aside>
     </div>
