@@ -173,13 +173,22 @@ body.menu_pressed #navMenuBtn > div:nth-child(3) {
 /* Content Wrapper */
 
 #contentWrapper {
+  display: flex;
+  justify-content: stretch;
   padding-top: var(--space-xxl);
 
-  width: 392px;
-  height: 506px;
+  width: 90%;
+  max-width: 36rem;
+  height: 608px;
 
   transition-property: width, height;
   transition-duration: var(--time-long);
+}
+
+@media (max-width: 799px) {
+  #contentWrapper {
+    width: 392px;
+  }
 }
 
 @media (max-width: 639px) {
@@ -197,6 +206,8 @@ body.menu_pressed #navMenuBtn > div:nth-child(3) {
   flex-direction: column;
   justify-content: stretch;
 
+  flex-grow: 1;
+
   height: 100%;
 }
 
@@ -210,12 +221,22 @@ body.menu_pressed #navMenuBtn > div:nth-child(3) {
 #textSub, #textMain {
   display: block;
   margin: 0;
+  padding: 0;
   width: 100%;
 
   text-align: right;
 
   border: 0;
   background: transparent;
+
+  transition-property: margin-bottom, padding-right, font-size, height;
+  transition-duration: var(--time-long);
+}
+
+@media (max-width: 639px) {
+  #textSub, #textMain {
+    padding-right: var(--space-s);
+  }
 }
 
 #textSub {
@@ -224,6 +245,8 @@ body.menu_pressed #navMenuBtn > div:nth-child(3) {
 }
 
 #textMain {
+  margin-bottom: var(--space-r);
+
   font-size: 2rem;
   font-weight: 500;
 }
@@ -235,8 +258,6 @@ body.menu_pressed #navMenuBtn > div:nth-child(3) {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   column-gap: var(--space-xxs);
-
-  margin-top: var(--space-r);
 }
 
 #mainMemoryBtnWrapper > button {
@@ -313,4 +334,144 @@ button#dotBtn {
 
 #mainBtnWrapper > button:disabled {
   color: var(--color-text-disabled);
+}
+
+
+/* Aside Wrapper */
+
+#asideWrapper {
+  width: 0;
+  flex-grow: 0;
+  overflow-x: hidden;
+
+  transition-property: width, flex-grow;
+  transition-duration: var(--time-long);
+}
+
+@media (min-width: 799px) {
+  #asideWrapper {
+    width: 10rem;
+    flex-grow: 1;
+  }
+}
+
+
+/* Aside Navigation */
+
+#asideNav {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: var(--space-s);
+  width: 100%;
+
+  text-align: right;
+}
+
+#asideNav > button {
+  position: relative;
+  top: 0;
+  padding: 0 var(--space-s);
+
+  font-size: .7rem;
+
+  border: 0;
+  background: transparent;
+
+  transition-property: color, font-size, top, padding, box-shadow;
+  transition-duration: var(--time-short);
+}
+
+#asideNav > button:hover,
+#asideNav > button:focus {
+  box-shadow: var(--shadow-inner);
+}
+
+#asideNav > button:active {
+  top: var(--space-xxs);
+}
+
+#asideNav > button > span.activeIndicator {
+  display: block;
+
+  width: 0;
+  margin: 0 auto;
+  height: var(--space-xxs);
+
+  background-color: var(--color-text);
+
+  transition-property: width;
+  transition-duration: var(--time-short);
+}
+
+#asideNav > button.actived > span.activeIndicator {
+  width: 100%;
+}
+
+
+/* History Wrapper and Memory Wrapper */
+
+#memoryWrapper {
+  display: none;
+}
+
+
+/* History Item and Memory Item */
+
+#historyWrapper > button.historyItem,
+#memoryWrapper > button.memoryItem {
+  position: relative;
+  top: 0;
+  display: block;
+
+  width: 100%;
+  height: 4rem;
+
+  border: 0;
+  background: transparent;
+
+  transition-property: color, font-size, top, padding, background-color, box-shadow;
+  transition-duration: var(--time-short);
+}
+
+#historyWrapper > button.historyItem:hover,
+#historyWrapper > button.historyItem:focus,
+#memoryWrapper > button.memoryItem:hover,
+#memoryWrapper > button.memoryItem:focus {
+  background-color: var(--color-button-hover);
+  box-shadow: var(--shadow-inner);
+}
+
+#historyWrapper > button.historyItem:active,
+#memoryWrapper > button.memoryItem:active {
+  top: var(--space-xxs);
+}
+
+#historyWrapper > button.historyItem > p.historyTextSub,
+#historyWrapper > button.historyItem > p.historyTextMain,
+#memoryWrapper > button.memoryItem > p.memoryText {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  text-align: right;
+  white-space: nowrap;
+
+  border: 0;
+  background: transparent;
+
+  transition-property: margin-bottom, padding-right, font-size, height;
+  transition-duration: var(--time-long);
+}
+
+#historyWrapper > button.historyItem > p.historyTextSub {
+  font-size: .7rem;
+  color: var(--color-text-sub);
+}
+
+#historyWrapper > button.historyItem > p.historyTextMain,
+#memoryWrapper > button.memoryItem > p.memoryText {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
 }
