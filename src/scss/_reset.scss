@@ -1,0 +1,51 @@
+/* Reset */
+
+* {
+  box-sizing: border-box;
+
+  :focus {
+    outline: none;
+  }
+}
+
+html, body {
+  margin: 0;
+  overflow: hidden;
+
+  font-size: 24px;
+  font-weight: 300;
+  font-family: "DM Mono", monospace;
+
+  @media (max-width: 480px) {
+    & {
+      font-size: 18px;
+    }
+  }
+}
+
+input, textarea, button {
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+}
+
+body {
+  background-color: var(--color-background);
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+
+/* Positioning center */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
