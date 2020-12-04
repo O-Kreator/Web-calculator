@@ -1,0 +1,22 @@
+{
+  "name": "Nyong-calculator",
+  "version": "0.0.1",
+  "description": "Simple calculator app using JavaScript",
+
+  "main": "./src/main.js",
+
+  "repository": "git@github.com:O-Kreator/Nyong-calculator.git",
+  "author": "O-Kreator <dongjunkang.design@gmail.com>",
+  "license": "MIT",
+
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.29.0"
+  },
+  "dependencies": {},
+
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  }
+}
