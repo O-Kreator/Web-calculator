@@ -15,7 +15,7 @@
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html",
-    "predeploy": "rm -rf dist && yarn build",
+    "predeploy": "rm -rf dist && parcel build index.html --public-url /Nyong-calculator",
     "deploy": "gh-pages -d dist"
   },
   "homepage": "https://o-kreator.github.io/Nyong-calculator"
