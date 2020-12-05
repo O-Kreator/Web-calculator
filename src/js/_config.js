@@ -9,7 +9,12 @@ export const DOM = {
   body: document.body,
   nav: {
     button: document.getElementById("navMenuBtn"),
-    top: document.getElementById("navTop")
+    top: document.getElementById("navTop"),
+    blinder: document.getElementById("navBlinder"),
+
+    contents: {
+      darkModeBtn: document.getElementById("darkModeBtn")
+    }
   },
   text: {
     sub: document.getElementById("textSub"),

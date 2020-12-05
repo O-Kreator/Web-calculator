@@ -45,12 +45,6 @@
 #memoryWrapper > button.memoryItem:hover,
 #memoryWrapper > button.memoryItem:focus {
   background-color: var(--color-button-hover);
-  box-shadow: var(--shadow-inner);
-}
-
-#historyWrapper > button.historyItem:active,
-#memoryWrapper > button.memoryItem:active {
-  top: var(--space-xxs);
 }
 
 #historyWrapper > button.historyItem > p.historyTextSub,

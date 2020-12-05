@@ -1,20 +1,40 @@
 import { CONST, DOM } from './_config.js';
 
 const navStatus = {
-  isMoving: false
+  isMoving: false,
+  isShown: false
 }
 
 const navFunc = {
-  toggle() {
+  on() {
     if (!navStatus.isMoving) {
       navStatus.isMoving = true;
-      DOM.body.classList.toggle("menu_pressed");
+
+      DOM.nav.button.classList.add("on");
+      DOM.body.classList.add("menu_pressed");
+
+      setTimeout(() => DOM.body.classList.add("menu_shown"), CONST.TIME_SHORT);
+      setTimeout(() => {navStatus.isShown = true}, CONST.TIME_LONG);
+      setTimeout(() => {navStatus.isMoving = false}, CONST.TIME_LONG);
+    }
+  },
+
+  off() {
+    if (!navStatus.isMoving) {
+      navStatus.isMoving = true;
+
+      DOM.nav.button.classList.remove("on");
+      DOM.body.classList.remove("menu_shown");
+
+      setTimeout(() => DOM.body.classList.remove("menu_pressed"), CONST.TIME_LONG);
+      setTimeout(() => {navStatus.isShown = false}, CONST.TIME_LONG);
       setTimeout(() => {navStatus.isMoving = false}, CONST.TIME_LONG);
     }
   },
 
   init() {
-    DOM.nav.button.addEventListener("click", this.toggle);
+    DOM.nav.button.addEventListener("click", () => !navStatus.isShown ? navFunc.on() : navFunc.off());
+    DOM.nav.background.addEventListener("click", navFunc.off);
   }
 }
 

@@ -1,6 +1,11 @@
 /* Basic Button Settings */
 
 button:not(:disabled) {
+  border: 0;
+  background: transparent;
+
+  transition-duration: var(--time-short);
+
   &:hover, &:focus {
     box-shadow: var(--shadow-inner);
   }
