@@ -1,0 +1,55 @@
+@import "./config";
+
+
+/* Main Wrapper */
+
+#mainWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+
+  flex-grow: 1;
+
+  height: 100%;
+
+  & > * {
+    flex-grow: 1;
+  }
+}
+
+
+/* Main Buttons */
+
+#mainBtnWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: var(--space-xxs);
+  row-gap: var(--space-xxs);
+
+  height: 100%;
+  margin-top: var(--space-xxs);
+
+  & > button {
+    position: relative;
+    top: 0;
+    padding: var(--space-s) var(--space-s);
+    border: 0;
+    background-color: var(--color-button);
+
+    transition-duration: var(--time-short);
+
+    &[id^=num], &#toggleSignBtn, &#dotBtn {
+      background-color: var(--color-button-strong);
+    }
+
+    &#equalBtn {
+      color: var(--color-text-theme);
+      background-color: var(--color-button-theme);
+    }
+
+    &:not(:disabled):hover, &:not(:disabled):focus {
+      background-color: var(--color-button-hover);
+      box-shadow: var(--shadow-inner);
+    }
+  }
+}

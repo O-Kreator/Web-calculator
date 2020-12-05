@@ -1,0 +1,42 @@
+@import "./config";
+
+
+/* Aside Navigation */
+
+#asideNav {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: var(--space-s);
+  width: 100%;
+
+  text-align: right;
+
+  & > button {
+    position: relative;
+    top: 0;
+    padding: 0 var(--space-s);
+  
+    font-size: .7rem;
+  
+    border: 0;
+    background: transparent;
+
+    transition-duration: var(--time-short);
+
+    & > span.activeIndicator {
+      display: block;
+
+      width: 0;
+      margin: 0 auto;
+      height: var(--space-xxs);
+    
+      background-color: var(--color-text);
+    
+      transition-duration: var(--time-short);
+    }
+
+    &.actived > span.activeIndicator {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,87 @@
+@import "./config";
+
+
+/* Aside Wrapper */
+
+#asideWrapper {
+  width: 0;
+  flex-grow: 0;
+  overflow-x: hidden;
+
+  transition-property: width, flex-grow;
+  transition-duration: var(--time-long);
+
+  @include media-desktop-only {
+    width: 10rem;
+    flex-grow: 1;
+  }
+}
+
+
+/* History Wrapper and Memory Wrapper */
+
+#memoryWrapper {
+  display: none;
+}
+
+
+/* History Item and Memory Item */
+
+#historyWrapper > button.historyItem,
+#memoryWrapper > button.memoryItem {
+  position: relative;
+  top: 0;
+  display: block;
+
+  width: 100%;
+  height: 4rem;
+
+  border: 0;
+  background: transparent;
+
+  transition-property: color, font-size, top, padding, background-color, box-shadow;
+  transition-duration: var(--time-short);
+}
+
+#historyWrapper > button.historyItem:hover,
+#historyWrapper > button.historyItem:focus,
+#memoryWrapper > button.memoryItem:hover,
+#memoryWrapper > button.memoryItem:focus {
+  background-color: var(--color-button-hover);
+  box-shadow: var(--shadow-inner);
+}
+
+#historyWrapper > button.historyItem:active,
+#memoryWrapper > button.memoryItem:active {
+  top: var(--space-xxs);
+}
+
+#historyWrapper > button.historyItem > p.historyTextSub,
+#historyWrapper > button.historyItem > p.historyTextMain,
+#memoryWrapper > button.memoryItem > p.memoryText {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  text-align: right;
+  white-space: nowrap;
+
+  border: 0;
+  background: transparent;
+
+  transition-property: margin-bottom, padding-right, font-size, height;
+  transition-duration: var(--time-long);
+}
+
+#historyWrapper > button.historyItem > p.historyTextSub {
+  font-size: .7rem;
+  color: var(--color-text-sub);
+}
+
+#historyWrapper > button.historyItem > p.historyTextMain,
+#memoryWrapper > button.memoryItem > p.memoryText {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
+}

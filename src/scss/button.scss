@@ -10,4 +10,8 @@ button:not(:disabled) {
   &:active {
     top: var(--space-xxs) !important;
   }
+
+  &:disabled {
+    color: var(--color-text-disabled);
+  }
 }

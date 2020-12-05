@@ -1,0 +1,34 @@
+@import "./config";
+
+
+/* Text Inputs */
+
+#textSub, #textMain {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  text-align: right;
+
+  border: 0;
+  background: transparent;
+
+  transition-duration: var(--time-long);
+
+  @include media-mobile-l-max {
+    padding-right: var(--space-s);
+  }
+}
+
+#textSub {
+  font-size: .7rem;
+  color: var(--color-text-sub);
+}
+
+#textMain {
+  margin-bottom: var(--space-r);
+
+  font-size: 2rem;
+  font-weight: 500;
+}

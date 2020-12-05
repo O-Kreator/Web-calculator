@@ -33,6 +33,13 @@ $breakpoint-tablet: 800px;
 $breakpoint-mobile-l: 640px;
 $breakpoint-mobile-s: 480px;
 
+
+@mixin media-desktop-only {
+  @media (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
 @mixin media-tablet-only {
   @media (min-width: $breakpoint-mobile-l) and (max-width: #{$breakpoint-tablet - 1px}) {
     @content;
