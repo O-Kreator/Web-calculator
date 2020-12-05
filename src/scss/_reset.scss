@@ -12,6 +12,7 @@ html, body {
   margin: 0;
   overflow: hidden;
 
+  color: var(--color-text);
   font-size: 24px;
   font-weight: 300;
   font-family: "DM Mono", monospace;
@@ -22,6 +23,7 @@ html, body {
 }
 
 input, textarea, button {
+  color: inherit;
   font-size: inherit;
   font-weight: inherit;
   font-family: inherit;
