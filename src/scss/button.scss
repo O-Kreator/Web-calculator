@@ -1,0 +1,13 @@
+@import "./config";
+
+/* Basic Button Settings */
+
+button:not(:disabled) {
+  &:hover, &:focus {
+    box-shadow: var(--shadow-inner);
+  }
+
+  &:active {
+    top: var(--space-xxs) !important;
+  }
+}

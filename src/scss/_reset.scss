@@ -16,10 +16,8 @@ html, body {
   font-weight: 300;
   font-family: "DM Mono", monospace;
 
-  @media (max-width: 480px) {
-    & {
-      font-size: 18px;
-    }
+  @include media-mobile-s-only {
+    font-size: 18px;
   }
 }
 

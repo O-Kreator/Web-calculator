@@ -1,0 +1,78 @@
+@import "./config";
+
+
+/* Navigation Menu Button */
+
+#navMenuBtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: var(--space-xxl);
+  height: var(--space-xxl);
+
+  border: 0;
+  background: transparent;
+
+  transition-duration: var(--time-long);
+
+  & > div {
+    position: absolute;
+    height: var(--space-xxs);
+    left: var(--space-s);
+
+    background-color: var(--color-text);
+
+    transition-duration: var(--time-long);
+
+    &:nth-child(1) {
+      width: calc(100% - var(--space-r));
+      top: .55rem;
+    }
+
+    &:nth-child(2) {
+      width: calc(100% - var(--space-r) - var(--space-xs));
+      top: .95rem
+    }
+
+    &:nth-child(3) {
+      width: calc(100% - var(--space-l));
+      top: 1.35rem
+    }
+  }
+}
+
+body.menu_pressed #navMenuBtn {
+  & > div:nth-child(1) {
+  width: calc(100% - var(--space-r));
+  top: .95rem;
+  transform: rotate(45deg);
+  }
+
+  & > div:nth-child(2) {
+    width: 0;
+  }
+
+  & > div:nth-child(3) {
+    width: calc(100% - var(--space-r));
+    top: .95rem;
+    transform: rotate(-45deg);
+  }
+}
+
+
+/* Navigation Top */
+
+#navTop {
+  position: fixed;
+  top: 0;
+  left: var(--space-xxl);
+  right: 0;
+  padding-left: var(--space-s);
+
+  height: var(--space-xxl);
+  font-size: .75rem;
+  line-height: var(--space-xxl);
+
+  transition-duration: var(--time-long);
+}

@@ -25,3 +25,40 @@ body {
 
   --shadow-inner: 0 0 0 var(--space-xs) var(--color-inner-shadow) inset;
 }
+
+
+/* Breakpoints */
+
+$breakpoint-tablet: 800px;
+$breakpoint-mobile-l: 640px;
+$breakpoint-mobile-s: 480px;
+
+@mixin media-tablet-only {
+  @media (min-width: $breakpoint-mobile-l) and (max-width: #{$breakpoint-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin media-mobile-l-only {
+  @media (min-width: #{$breakpoint-mobile-s + 1px}) and (max-width: #{$breakpoint-mobile-l - 1px}) {
+    @content;
+  }
+}
+
+@mixin media-mobile-s-only {
+  @media (max-width: $breakpoint-mobile-s) {
+    @content;
+  }
+}
+
+@mixin media-tablet-max {
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin media-mobile-l-max {
+  @media (max-width: #{$breakpoint-mobile-l - 1px}) {
+    @content;
+  }
+}
