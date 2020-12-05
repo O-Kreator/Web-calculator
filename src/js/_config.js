@@ -58,7 +58,10 @@ export const DOM = {
   },
 
   aside: {
+    wrapper: document.getElementById("asideWrapper"),
     historyTab: document.getElementById("historyTabBtn"),
-    memoryTab: document.getElementById("memoryTabBtn")
+    historyWrapper: document.getElementById("historyWrapper"),
+    memoryTab: document.getElementById("memoryTabBtn"),
+    memoryWrapper: document.getElementById("memoryWrapper")
   }
 }

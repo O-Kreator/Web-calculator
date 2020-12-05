@@ -17,8 +17,34 @@
 
 /* History Wrapper and Memory Wrapper */
 
-#memoryWrapper {
-  display: none;
+#historyWrapper, #memoryWrapper {
+  position: relative;
+  left: 0;
+  opacity: 1;
+
+  transition-duration: var(--time-long);
+}
+
+#asideWrapper {
+  &:not(.memory_shown) #memoryWrapper {
+    pointer-events: none;
+    opacity: 0;
+    left: var(--space-xl);
+  }
+
+  &:not(.memory_clicked) #memoryWrapper {
+    display: none;
+  }
+
+  &:not(.history_shown) #historyWrapper {
+    pointer-events: none;
+    opacity: 0;
+    left: calc(-1 * var(--space-xl));
+  }
+
+  &:not(.history_clicked) #historyWrapper {
+    display: none;
+  }
 }
 
 
@@ -38,13 +64,10 @@
 
   transition-property: color, font-size, top, padding, background-color, box-shadow;
   transition-duration: var(--time-short);
-}
 
-#historyWrapper > button.historyItem:hover,
-#historyWrapper > button.historyItem:focus,
-#memoryWrapper > button.memoryItem:hover,
-#memoryWrapper > button.memoryItem:focus {
-  background-color: var(--color-button-hover);
+  &:hover, &:focus {
+    background-color: var(--color-button-hover);
+  }
 }
 
 #historyWrapper > button.historyItem > p.historyTextSub,
