@@ -16,7 +16,7 @@
 
   & > div {
     position: absolute;
-    height: var(--space-xxs);
+    height: 2.5px;
     left: var(--space-s);
 
     background-color: var(--color-text);
@@ -25,17 +25,17 @@
 
     &:nth-child(1) {
       width: calc(100% - var(--space-r));
-      top: .55rem;
+      top: calc(50% - 1px - 9px);
     }
 
     &:nth-child(2) {
       width: calc(100% - var(--space-r) - var(--space-xs));
-      top: .95rem
+      top: calc(50% - 1px);
     }
 
     &:nth-child(3) {
       width: calc(100% - var(--space-l));
-      top: 1.35rem
+      top: calc(50% - 1px + 9px);
     }
   }
 
