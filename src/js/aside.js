@@ -20,7 +20,7 @@ const asideFunc = {
         setTimeout(() => { DOM.aside.wrapper.classList.add("memory_clicked") }, CONST.TIME_SHORT + CONST.TIME_LONG);
         setTimeout(() => { DOM.aside.wrapper.classList.add("memory_shown") }, CONST.TIME_SHORT + 2 * CONST.TIME_LONG);
 
-        asideStatus.isChanging = false;
+        setTimeout(() => { asideStatus.isChanging = false }, CONST.TIME_SHORT + 2 * CONST.TIME_LONG);
       }
     },
 
@@ -37,7 +37,7 @@ const asideFunc = {
         setTimeout(() => { DOM.aside.wrapper.classList.add("history_clicked") }, CONST.TIME_SHORT + CONST.TIME_LONG);
         setTimeout(() => { DOM.aside.wrapper.classList.add("history_shown") }, CONST.TIME_SHORT + 2 * CONST.TIME_LONG);
 
-        asideStatus.isChanging = false;
+        setTimeout(() => { asideStatus.isChanging = false }, CONST.TIME_SHORT + 2 * CONST.TIME_LONG);
       }
     }
   },
