@@ -2,21 +2,21 @@
   "name": "Nyong-calculator",
   "version": "0.0.1",
   "description": "Simple calculator app using JavaScript",
-
   "main": "./src/main.js",
-
   "repository": "git@github.com:O-Kreator/Nyong-calculator.git",
   "author": "O-Kreator <dongjunkang.design@gmail.com>",
   "license": "MIT",
-
   "devDependencies": {
+    "gh-pages": "^3.1.0",
     "parcel-bundler": "^1.12.4",
     "sass": "^1.29.0"
   },
   "dependencies": {},
-
   "scripts": {
     "dev": "parcel index.html",
-    "build": "parcel build index.html"
-  }
+    "build": "parcel build index.html",
+    "predeploy": "rm -rf dist && yarn build",
+    "deploy": "gh-pages -d dist"
+  },
+  "homepage": "https://o-kreator.github.io/Nyong-calculator"
 }
