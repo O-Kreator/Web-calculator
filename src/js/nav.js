@@ -35,6 +35,7 @@ const navFunc = {
   init() {
     DOM.nav.button.addEventListener("click", () => !navStatus.isShown ? navFunc.on() : navFunc.off());
     DOM.nav.blinder.addEventListener("click", navFunc.off);
+    window.addEventListener("resize", navFunc.off);
 
     const navButtons = DOM.nav.contents;
     for (const key in navButtons) {
