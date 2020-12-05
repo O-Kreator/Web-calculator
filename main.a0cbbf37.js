@@ -9,4 +9,4 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{"./_config.js":"epnb"}],"aRYt":[function(require,module,exports) {
 "use strict";require("./../scss/index.scss"),require("./nav"),require("./navcontent");
 },{"./../scss/index.scss":"HYMH","./nav":"nfFM","./navcontent":"kkm1"}]},{},["aRYt"], null)
-//# sourceMappingURL=/main.a0cbbf37.js.map
+//# sourceMappingURL=/Nyong-calculator/main.a0cbbf37.js.map
