@@ -38,16 +38,40 @@ export const dataFunc = {
       dataFunc.list.backspace();
       dataFunc.list.input(text);
     },
+    preCalculate() {
+      if (!dataList.length)
+        return 0;
+      if (dataList.length <= 2)
+        return dataList[0];
+
+      let result = Number(dataList[0]);
+      for (let i = 1; i < dataList.length - 1; i += 2) {
+        if (helperFunc.isOperator(dataList[i + 1]))
+          throw "Misordered item in dataList."
+
+        const operator = dataList[i];
+        if (operator === "+")
+          result += Number(dataList[i + 1]);
+        if (operator === "-")
+          result -= Number(dataList[i + 1]);
+        if (operator === "*")
+          result *= Number(dataList[i + 1]);
+        if (operator === "/")
+          result /= Number(dataList[i + 1]);
+      }
+
+      return result;
+    },
     calculate() {
       if (!dataList.length)
         return 0;
-      if (dataList.length === 1)
+      if (dataList.length <= 2)
         return dataList[0];
 
       let result = Number(dataList[0]);
       for (let i = 1; i < dataList.length; i += 2) {
-        if (i + 1 > dataList.length)
-          throw "Missing last number in dataList array.";
+        if (helperFunc.isOperator(dataList[i + 1]))
+          throw "Misordered item in dataList."
         
         const operator = dataList[i];
         if (operator === "+")

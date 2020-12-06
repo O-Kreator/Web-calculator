@@ -5,6 +5,7 @@ import { btnHistoryFunc } from './status';
 const mainOperatorBtnFunc = {
   operator(text) {
     textFunc.sub.input(text);
+    textFunc.sub.preCalculate();
     textFunc.sub.update();
   },
   equal() {

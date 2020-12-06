@@ -4,7 +4,7 @@ export const history = {
   recentInput: "",
   recentResult: "",
   recentButton: null,
-  recentOperator: ""
+  recentOperator: "="
 }
 
 export const btnHistoryFunc = {
@@ -30,6 +30,9 @@ export const btnHistoryFunc = {
     return false;
   },
   isEqual() {
-    return (history.recentButton === DOM.mainBtn.equal) ? true : false;
+    return (history.recentButton === DOM.mainBtn.equal);
+  },
+  isDot() {
+    return (history.recentButton === DOM.mainBtn.dot);
   }
 }

@@ -28,29 +28,45 @@ const textFunc = {
         dataFunc.list.input(history.recentResult);
         dataFunc.list.input(text);
       } else {
-        dataFunc.list.input(dataItem);
+        dataFunc.list.input(helperFunc.filterNum(dataItem));
         dataFunc.list.input(text);
       }
 
       history.recentOperator = text;
       history.recentInput = dataItem;
     },
+    preCalculate() {
+      let result = 0;
+      result = dataFunc.list.preCalculate();
+
+      textFunc.main.replace(result);
+      history.recentResult = String(result);
+    },
     calculate() {
       if (btnHistoryFunc.isOperator()) {
         dataFunc.list.input(textFunc.main.get());
         history.recentInput = textFunc.main.get();
-      } else if (btnHistoryFunc.isNum()) {
-        dataFunc.list.input(dataItem);
-        history.recentInput = dataItem;
       } else if (btnHistoryFunc.isEqual()) {
         textFunc.sub.clear();
         dataFunc.list.input(history.recentResult);
         dataFunc.list.input(history.recentOperator);
-        dataFunc.list.input(history.recentInput);
+        if (history.recentOperator !== "=")
+          dataFunc.list.input(history.recentInput);
+      } else {
+        if (btnHistoryFunc.isDot())
+          textFunc.sub.clear();
+        dataFunc.list.input(helperFunc.filterNum(dataItem));
+        if (history.recentOperator === "=") {
+          history.recentInput = helperFunc.filterNum(dataItem);
+          dataFunc.list.input("=");
+        } else if (!btnHistoryFunc.isNum()) {
+          dataFunc.list.input(history.recentOperator);
+          dataFunc.list.input(history.recentInput);
+        }
       }
 
       let result = 0;
-      result = dataFunc.list.calculate()
+      result = dataFunc.list.calculate();
 
       textFunc.main.replace(result);
       history.recentResult = String(result);
@@ -59,7 +75,7 @@ const textFunc = {
 
   main: {
     get() {
-      return DOM.text.main.value;
+      return helperFunc.filterNum(DOM.text.main.value);
     },
     update() {
       DOM.text.main.value = dataItem;
@@ -89,10 +105,13 @@ const textFunc = {
         if (text === ".")
           dataFunc.item.replace("0.")
         else
-            dataFunc.item.replace(text);
+          dataFunc.item.replace(text);
+      } else if (btnHistoryFunc.isOperator() || dataItem === "0") {
+        if (text === ".")
+          dataFunc.item.replace("0.");
+        else
+          dataFunc.item.replace(text);
       }
-      else if ((text !== "." && dataItem === "0") || btnHistoryFunc.isOperator())
-        dataFunc.item.replace(text);
       else
         dataFunc.item.input(text);
     }
