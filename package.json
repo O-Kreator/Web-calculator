@@ -2,7 +2,7 @@
   "name": "Nyong-calculator",
   "version": "0.0.1",
   "description": "Simple calculator app using JavaScript",
-  "main": "./src/main.js",
+  "main": "./src/index.js",
   "repository": "git@github.com:O-Kreator/Nyong-calculator.git",
   "author": "O-Kreator <dongjunkang.design@gmail.com>",
   "license": "MIT",
