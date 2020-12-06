@@ -11,7 +11,10 @@
     "parcel-bundler": "^1.12.4",
     "sass": "^1.29.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/mathjs": "^6.0.8",
+    "mathjs": "^8.1.0"
+  },
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html",
