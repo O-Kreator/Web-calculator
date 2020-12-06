@@ -5,3 +5,7 @@ import './../scss/index.scss';
 import './nav';
 import './navcontent';
 import './aside';
+
+import './mainNumBtn';
+import './mainCtrlBtn';
+import './mainOperatorBtn';
