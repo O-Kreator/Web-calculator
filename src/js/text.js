@@ -49,8 +49,6 @@ const textFunc = {
         dataFunc.list.input(history.recentInput);
       }
 
-      console.log(dataList);
-
       let result = 0;
       result = dataFunc.list.calculate()
 
