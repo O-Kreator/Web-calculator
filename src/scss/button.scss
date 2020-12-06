@@ -6,11 +6,11 @@ button:not(:disabled) {
 
   transition-duration: var(--time-short);
 
-  &:hover, &:focus {
+  &:hover, &:focus, &.pressed {
     box-shadow: var(--shadow-inner);
   }
 
-  &:active {
+  &:active, &.pressed {
     top: var(--space-xxs) !important;
   }
 }

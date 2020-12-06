@@ -42,7 +42,7 @@
       background-color: var(--color-button-theme);
     }
 
-    &:not(:disabled):hover, &:not(:disabled):focus {
+    &:not(:disabled):hover, &:not(:disabled):focus, &:not(:disabled).pressed {
       background-color: var(--color-button-hover) !important;
       box-shadow: var(--shadow-inner);
     }
