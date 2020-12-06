@@ -20,8 +20,8 @@
 #mainBtnWrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  column-gap: var(--space-xxs);
-  row-gap: var(--space-xxs);
+  column-gap: 3px;
+  row-gap: 3px;
 
   height: 100%;
   margin-top: var(--space-xxs);

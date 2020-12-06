@@ -3,7 +3,7 @@
 #mainMemoryBtnWrapper {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  column-gap: var(--space-xxs);
+  column-gap: 3px;
 
   & > button {
     position: relative;
