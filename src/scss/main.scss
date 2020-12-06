@@ -43,7 +43,7 @@
     }
 
     &:not(:disabled):hover, &:not(:disabled):focus {
-      background-color: var(--color-button-hover);
+      background-color: var(--color-button-hover) !important;
       box-shadow: var(--shadow-inner);
     }
   }
