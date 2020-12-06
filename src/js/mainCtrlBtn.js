@@ -5,12 +5,10 @@ import { btnHistoryFunc } from './status';
 const mainCtrlBtnFunc = {
   clearEntry() {
     textFunc.main.clear();
-    btnHistoryFunc.update(DOM.mainBtn.clearEntry);
   },
   backspace() {
     textFunc.main.backspace();
     textFunc.main.update();
-    btnHistoryFunc.update(DOM.mainBtn.backspace);
   },
 
   init() {

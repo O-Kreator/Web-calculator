@@ -34,5 +34,8 @@ export const btnHistoryFunc = {
   },
   isDot() {
     return (history.recentButton === DOM.mainBtn.dot);
+  },
+  isOther() {
+    return (!btnHistoryFunc.isNum() && !btnHistoryFunc.isOperator() && !btnHistoryFunc.isEqual() && !btnHistoryFunc.isDot());
   }
 }

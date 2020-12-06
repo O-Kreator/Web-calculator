@@ -5,6 +5,9 @@ export let dataItem = "0"
 
 export const dataFunc = {
   list: {
+    isEmpty() {
+      return (!dataList.length);
+    },
     reset() {
       dataList.splice(0, dataList.length);
     },

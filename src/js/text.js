@@ -15,6 +15,9 @@ const textFunc = {
           value = ` ${value} `;
         DOM.text.sub.value += value;
       }
+
+      if (DOM.text.sub.value[DOM.text.sub.value.length - 1] === " ")
+        DOM.text.sub.value = DOM.text.sub.value.slice(0, DOM.text.sub.value.length - 1);
     },
     clear() {
       DOM.text.sub.value = "";
@@ -50,19 +53,25 @@ const textFunc = {
         textFunc.sub.clear();
         dataFunc.list.input(history.recentResult);
         dataFunc.list.input(history.recentOperator);
-        if (history.recentOperator !== "=")
+        if (history.recentOperator !== "=") {
           dataFunc.list.input(history.recentInput);
+          dataFunc.list.input("=");
+        }
       } else {
         if (btnHistoryFunc.isDot())
           textFunc.sub.clear();
-        dataFunc.list.input(helperFunc.filterNum(dataItem));
         if (history.recentOperator === "=") {
+          dataFunc.list.input(helperFunc.filterNum(dataItem));
           history.recentInput = helperFunc.filterNum(dataItem);
-          dataFunc.list.input("=");
-        } else if (!btnHistoryFunc.isNum()) {
+        } else if (!btnHistoryFunc.isNum() || dataFunc.list.isEmpty()) {
+          dataFunc.list.input(helperFunc.filterNum(dataItem));
           dataFunc.list.input(history.recentOperator);
           dataFunc.list.input(history.recentInput);
+        } else {
+          dataFunc.list.input(helperFunc.filterNum(dataItem));
+          history.recentInput = helperFunc.filterNum(dataItem);
         }
+        dataFunc.list.input("=");
       }
 
       let result = 0;
@@ -84,6 +93,8 @@ const textFunc = {
       DOM.text.main.value = text;
     },
     clear() {
+      if (btnHistoryFunc.isEqual())
+        textFunc.sub.clear();
       DOM.text.main.value = "0";
       dataFunc.item.replace("0");
     },
@@ -101,7 +112,7 @@ const textFunc = {
       else if (text === "." && dataItem.includes("."))
         return ;
       if (btnHistoryFunc.isEqual()) {
-        dataFunc.list.reset();
+        textFunc.sub.clear();
         if (text === ".")
           dataFunc.item.replace("0.")
         else
