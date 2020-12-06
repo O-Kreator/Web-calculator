@@ -14,6 +14,11 @@
 
   transition-duration: var(--time-long);
 
+  @include media-mobile-s-only {
+    width: 3rem;
+    height: 3rem;
+  }
+
   & > div {
     position: absolute;
     height: 2.5px;
@@ -23,18 +28,27 @@
 
     transition-duration: var(--time-long);
 
+    @include media-mobile-s-only {
+      left: .8rem;
+    }
+
     &:nth-child(1) {
       width: calc(100% - var(--space-r));
       top: calc(50% - 1px - 9px);
 
       @include media-mobile-s-only {
-        top: calc(50% - 1px - 7px);
+        width: calc(100% - 1.6rem);
+        top: calc(50% - 1px - 8px);
       }
     }
 
     &:nth-child(2) {
       width: calc(100% - var(--space-r) - var(--space-xs));
       top: calc(50% - 1px);
+
+      @include media-mobile-s-only {
+        width: calc(100% - 1.6rem - .4rem);
+      }
     }
 
     &:nth-child(3) {
@@ -42,16 +56,22 @@
       top: calc(50% - 1px + 9px);
 
       @include media-mobile-s-only {
-        top: calc(50% - 1px + 7px);
+        width: calc(100% - 1.6rem - .8rem);
+        top: calc(50% - 1px + 8px);
       }
     }
   }
 
   &.on > div {
     &:nth-child(1) {
-    width: calc(100% - var(--space-r));
-    top: .95rem;
-    transform: rotate(45deg);
+      width: calc(100% - var(--space-r));
+      top: .95rem;
+      transform: rotate(45deg);
+
+      @include media-mobile-s-only {
+        top: 1.4rem;
+        width: calc(100% - 1.6rem);
+      }
     }
   
     &:nth-child(2) {
@@ -62,6 +82,11 @@
       width: calc(100% - var(--space-r));
       top: .95rem;
       transform: rotate(-45deg);
+
+      @include media-mobile-s-only {
+        top: 1.4rem;
+        width: calc(100% - 1.6rem);
+      }
     }
   }
 }
@@ -81,6 +106,14 @@
   line-height: var(--space-xxl);
 
   transition-duration: var(--time-long);
+
+  @include media-mobile-s-only {
+    left: 3rem;
+
+    height: 3rem;
+    font-size: 1rem;
+    line-height: 3rem;
+  }
 }
 
 
@@ -117,7 +150,7 @@ body {
 /* Navigation Content Wrapper */
 
 #navContentWrapper {
-  z-index: 15;
+  z-index: 11;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -129,6 +162,10 @@ body {
   background: var(--color-background);
 
   transition-duration: var(--time-long);
+
+  @include media-mobile-s-only {
+    padding-top: 3rem;
+  }
 
   & > button.navContentItem {
     position: relative;

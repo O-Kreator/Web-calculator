@@ -16,5 +16,10 @@
     font-size: .75rem;
 
     transition-duration: var(--time-short);
+
+    @include media-mobile-s-only {
+      font-size: 1rem;
+      padding: var(--space-r) var(--space-r);
+    }
   }
 }
