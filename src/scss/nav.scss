@@ -26,6 +26,10 @@
     &:nth-child(1) {
       width: calc(100% - var(--space-r));
       top: calc(50% - 1px - 9px);
+
+      @include media-mobile-s-only {
+        top: calc(50% - 1px - 7px);
+      }
     }
 
     &:nth-child(2) {
@@ -36,6 +40,10 @@
     &:nth-child(3) {
       width: calc(100% - var(--space-l));
       top: calc(50% - 1px + 9px);
+
+      @include media-mobile-s-only {
+        top: calc(50% - 1px + 7px);
+      }
     }
   }
 
