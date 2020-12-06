@@ -1,21 +1,8 @@
 import helperFunc from './helper';
-import {
-  create,
-  formatDependencies,
-  addDependencies,
-  subtractDependencies,
-  multiplyDependencies,
-  divideDependencies
-} from 'mathjs';
+import { create, formatDependencies, evaluateDependencies } from 'mathjs';
 
 
-const { format, add, subtract, multiply, divide } = create({
-  formatDependencies,
-  addDependencies,
-  subtractDependencies,
-  multiplyDependencies,
-  divideDependencies
-})
+const { format, add, subtract, multiply, divide } = create({ formatDependencies, evaluateDependencies });
 
 export const dataList = [];
 export let dataItem = "0"
@@ -72,7 +59,6 @@ export const dataFunc = {
       if (dataList.length <= 2)
         return dataList[0];
 
-      let result = Number(dataList[0]);
       for (let i = 1; i < dataList.length - 1; i += 2) {
         try {
           if (helperFunc.isOperator(dataList[i + 1]))
@@ -80,19 +66,14 @@ export const dataFunc = {
         } catch (error) {
           console.error(error);
         }
-
-        const operator = dataList[i];
-        if (operator === "+")
-          result = format(add(result, Number(dataList[i + 1])), {precision: 14});
-        if (operator === "-")
-          result = format(subtract(result, Number(dataList[i + 1])), {precision: 14});
-        if (operator === "*")
-          result = format(multiply(result, Number(dataList[i + 1])), {precision: 14});
-        if (operator === "/")
-          result = format(divide(result, Number(dataList[i + 1])), {precision: 14});
       }
 
-      return result;
+      let dataListText = "";
+      for (let i = 0; i < dataList.length - 1; i++)
+        dataListText += dataList[i] + " ";
+      dataListText = dataListText.slice(0, dataListText.length - 1);
+
+      return format(eval(dataListText), {precision: 14});
     },
     calculate() {
       if (!dataList.length)
@@ -100,7 +81,6 @@ export const dataFunc = {
       if (dataList.length <= 2)
         return dataList[0];
 
-      let result = Number(dataList[0]);
       for (let i = 1; i < dataList.length; i += 2) {
         try {
           if (helperFunc.isOperator(dataList[i + 1]))
@@ -108,19 +88,14 @@ export const dataFunc = {
         } catch (error) {
           console.error(error);
         }
-        
-        const operator = dataList[i];
-        if (operator === "+")
-          result = format(add(result, Number(dataList[i + 1])), {precision: 14});
-        if (operator === "-")
-          result = format(subtract(result, Number(dataList[i + 1])), {precision: 14});
-        if (operator === "*")
-          result = format(multiply(result, Number(dataList[i + 1])), {precision: 14});
-        if (operator === "/")
-          result = format(divide(result, Number(dataList[i + 1])), {precision: 14});
       }
 
-      return result;
+      let dataListText = "";
+      for (let i = 0; i < dataList.length - 1; i++)
+        dataListText += dataList[i] + " ";
+      dataListText = dataListText.slice(0, dataListText.length - 1);
+
+      return format(eval(dataListText), {precision: 14});
     }
   },
 
