@@ -49,6 +49,7 @@ const textFunc = {
       if (btnHistoryFunc.isOperator()) {
         dataFunc.list.input(textFunc.main.get());
         history.recentInput = textFunc.main.get();
+        dataFunc.list.input("=");
       } else if (btnHistoryFunc.isEqual()) {
         textFunc.sub.clear();
         dataFunc.list.input(history.recentResult);
