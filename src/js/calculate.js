@@ -1,8 +1,23 @@
 import helperFunc from './helper';
-import { create, formatDependencies, evaluateDependencies } from 'mathjs';
+import {
+  create,
+  formatDependencies,
+  fractionDependencies,
+  addDependencies,
+  subsetDependencies,
+  multiplyDependencies,
+  divideDependencies
+} from 'mathjs';
 
 
-const { format, add, subtract, multiply, divide } = create({ formatDependencies, evaluateDependencies });
+const { format, fraction, add, subtract, multiply, divide } = create({
+  formatDependencies,
+  fractionDependencies,
+  addDependencies,
+  subsetDependencies,
+  multiplyDependencies,
+  divideDependencies
+});
 
 export const dataList = [];
 export let dataItem = "0"
@@ -59,6 +74,7 @@ export const dataFunc = {
       if (dataList.length <= 2)
         return dataList[0];
 
+      let result = fraction(dataList[0]);
       for (let i = 1; i < dataList.length - 1; i += 2) {
         try {
           if (helperFunc.isOperator(dataList[i + 1]))
@@ -66,14 +82,19 @@ export const dataFunc = {
         } catch (error) {
           console.error(error);
         }
+
+        const operator = dataList[i];
+        if (operator === "+")
+          result = add(result, fraction(dataList[i + 1]));
+        if (operator === "-")
+          result = subtract(result, fraction(dataList[i + 1]));
+        if (operator === "*")
+          result = multiply(result, fraction(dataList[i + 1]));
+        if (operator === "/")
+          result = divide(result, fraction(dataList[i + 1]));
       }
 
-      let dataListText = "";
-      for (let i = 0; i < dataList.length - 1; i++)
-        dataListText += dataList[i] + " ";
-      dataListText = dataListText.slice(0, dataListText.length - 1);
-
-      return format(eval(dataListText), {precision: 14});
+      return format(result, {fraction: "decimal", precision: 14});
     },
     calculate() {
       if (!dataList.length)
@@ -81,6 +102,7 @@ export const dataFunc = {
       if (dataList.length <= 2)
         return dataList[0];
 
+      let result = fraction(dataList[0]);
       for (let i = 1; i < dataList.length; i += 2) {
         try {
           if (helperFunc.isOperator(dataList[i + 1]))
@@ -88,14 +110,19 @@ export const dataFunc = {
         } catch (error) {
           console.error(error);
         }
+
+        const operator = dataList[i];
+        if (operator === "+")
+          result = add(result, fraction(dataList[i + 1]));
+        if (operator === "-")
+          result = subtract(result, fraction(dataList[i + 1]));
+        if (operator === "*")
+          result = multiply(result, fraction(dataList[i + 1]));
+        if (operator === "/")
+          result = divide(result, fraction(dataList[i + 1]));
       }
 
-      let dataListText = "";
-      for (let i = 0; i < dataList.length - 1; i++)
-        dataListText += dataList[i] + " ";
-      dataListText = dataListText.slice(0, dataListText.length - 1);
-
-      return format(eval(dataListText), {precision: 14});
+      return format(result, {fraction: "decimal", precision: 14});
     }
   },
 
