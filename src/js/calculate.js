@@ -155,6 +155,10 @@ export const dataFunc = {
     },
     input(text) {
       dataItem += text;
+    },
+    toggleSign() {
+      dataItem *= -1;
+      dataItem = String(dataItem);
     }
   }
 }

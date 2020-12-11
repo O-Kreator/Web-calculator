@@ -48,7 +48,7 @@ export const DOM = {
     fraction: document.getElementById("fractionBtn"),
     square: document.getElementById("squareBtn"),
     squareRoot: document.getElementById("squareRootBtn"),
-    toggleSign: document.getElementById("toggleSign"),
+    toggleSign: document.getElementById("toggleSignBtn"),
 
     plus: document.getElementById("plusBtn"),
     minus: document.getElementById("minusBtn"),

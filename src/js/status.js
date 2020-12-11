@@ -44,6 +44,9 @@ export const btnHistoryFunc = {
   isDot() {
     return (history.recentButton === DOM.mainBtn.dot);
   },
+  isToggleSign() {
+    return (histroy.recentButton === DOM.mainBtn.toggleSign);
+  },
   isOther() {
     return (!btnHistoryFunc.isNum() && !btnHistoryFunc.isOperator() && !btnHistoryFunc.isEqual() && !btnHistoryFunc.isDot());
   }

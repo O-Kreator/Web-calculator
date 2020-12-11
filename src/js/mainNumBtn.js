@@ -14,6 +14,10 @@ const mainNumBtnFunc = {
     btn.classList.add("pressed");
     setTimeout(() => { btn.classList.remove("pressed") }, CONST.TIME_SHORT);
   },
+  toggleSign() {
+    textFunc.main.toggleSign();
+    textFunc.main.update();
+  },
 
   init() {
     for (let i = 0; i < 10; i++) {
@@ -40,7 +44,12 @@ const mainNumBtnFunc = {
         mainNumBtnFunc.keyDown(e.key, DOM.mainBtn.dot);
         btnHistoryFunc.update(DOM.mainBtn.dot);
       }
-    })
+    });
+
+    DOM.mainBtn.toggleSign.addEventListener("click", () => {
+      mainNumBtnFunc.toggleSign();
+      btnHistoryFunc.update(DOM.mainBtn.toggleSign);
+    });
   }
 }
 

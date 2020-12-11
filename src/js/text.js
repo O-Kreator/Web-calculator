@@ -2,7 +2,7 @@ import { DOM } from './_config.js';
 import { dataList, dataItem, dataFunc } from './calculate.js';
 
 import helperFunc from './helper';
-import { history, btnHistoryFunc } from './status';
+import { history, btnHistoryFunc, historyFunc } from './status';
 
 const textFunc = {
   sub: {
@@ -80,8 +80,6 @@ const textFunc = {
 
       textFunc.main.replace(result);
       history.recentResult = String(result);
-
-      dataFunc.item.reset();
     }
   },
 
@@ -112,8 +110,12 @@ const textFunc = {
     input(text) {
       if (text === "0" && dataItem === "0")
         return ;
-      else if (text === "." && dataItem.includes("."))
-        return ;
+      else if (text === "." && dataItem.includes(".")) {
+        if (btnHistoryFunc.isOperator() || btnHistoryFunc.isEqual())
+          dataFunc.item.replace("0.");
+        else
+          return ;
+      }
       if (btnHistoryFunc.isEqual()) {
         textFunc.sub.clear();
         if (text === ".")
@@ -128,6 +130,13 @@ const textFunc = {
       }
       else
         dataFunc.item.input(text);
+    },
+    toggleSign() {
+      if (btnHistoryFunc.isOperator() || btnHistoryFunc.isEqual()) {
+        textFunc.sub.clear();
+        dataFunc.item.replace(history.recentResult);
+      }
+      dataFunc.item.toggleSign();
     }
   }
 }
