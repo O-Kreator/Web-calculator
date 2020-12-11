@@ -7,6 +7,7 @@ const mainNumBtnFunc = {
   event(text) {
     textFunc.main.input(text);
     textFunc.main.update();
+    textFunc.sub.update();
   },
   keyDown(text, btn) {
     mainNumBtnFunc.event(text);
@@ -17,6 +18,7 @@ const mainNumBtnFunc = {
   toggleSign() {
     textFunc.main.toggleSign();
     textFunc.main.update();
+    textFunc.sub.update();
   },
 
   init() {

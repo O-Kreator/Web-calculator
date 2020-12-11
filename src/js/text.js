@@ -131,13 +131,18 @@ const textFunc = {
           dataFunc.item.replace("0.");
         else
           dataFunc.item.replace(text);
-      } else if (btnHistoryFunc.isOperator() || btnHistoryFunc.isToggleSign() || btnHistoryFunc.isShortcut() || dataItem === "0") {
+      } else if (btnHistoryFunc.isOperator() || dataItem === "0") {
         if (text === ".")
           dataFunc.item.replace("0.");
         else
           dataFunc.item.replace(text);
-      }
-      else
+      } else if (btnHistoryFunc.isToggleSign() || btnHistoryFunc.isShortcut()) {
+        dataFunc.list.backspace();
+        if (text === ".")
+          dataFunc.item.replace("0.");
+        else 
+          dataFunc.item.replace(text);
+      } else
         dataFunc.item.input(text);
     },
     toggleSign() {
