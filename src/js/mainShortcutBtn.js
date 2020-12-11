@@ -3,6 +3,11 @@ import textFunc from './text';
 import { historyFunc, btnHistoryFunc } from './status';
 
 const mainShortcutBtnFunc = {
+  percent() {
+    textFunc.main.percent();
+    textFunc.main.update();
+    textFunc.sub.update();
+  },
   fraction() {
     textFunc.main.fraction();
     textFunc.main.update();
@@ -20,6 +25,11 @@ const mainShortcutBtnFunc = {
   },
 
   init() {
+    DOM.mainBtn.percent.addEventListener("click", () => {
+      mainShortcutBtnFunc.percent();
+      btnHistoryFunc.update(DOM.mainBtn.percent);
+    });
+
     DOM.mainBtn.fraction.addEventListener("click", () => {
       mainShortcutBtnFunc.fraction();
       btnHistoryFunc.update(DOM.mainBtn.fraction);
@@ -33,7 +43,7 @@ const mainShortcutBtnFunc = {
     DOM.mainBtn.squareRoot.addEventListener("click", () => {
       mainShortcutBtnFunc.squareRoot();
       btnHistoryFunc.update(DOM.mainBtn.squareRoot);
-    })
+    });
   }
 }
 

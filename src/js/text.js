@@ -151,6 +151,19 @@ const textFunc = {
       else
         dataFunc.list.replaceRecent(helperFunc.filterNum(dataItem));
     },
+    percent() {
+      if (dataItem === "0")
+        dataFunc.item.replace("0");
+      else if (btnHistoryFunc.isEqual()) {
+        textFunc.sub.clear();
+        dataFunc.item.replace(history.recentResult);
+      }
+      dataFunc.item.replace(dataFunc.item.percent(dataItem, history.recentResult));
+      if (!btnHistoryFunc.isShortcut())
+        dataFunc.list.input(helperFunc.filterNum(dataItem));
+      else
+        dataFunc.list.replaceRecent(helperFunc.filterNum(dataItem));
+    },
     fraction() {
       if (btnHistoryFunc.isEqual()) {
         textFunc.sub.clear();

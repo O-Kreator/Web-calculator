@@ -168,6 +168,10 @@ export const dataFunc = {
     },
     squareRoot() {
       dataItem = String(Math.pow(Number(dataItem), 0.5));
+    },
+    percent(num, numFull) {
+      const decimal = dataFunc.list._operate(Number(num), "/", 100);
+      return String(dataFunc.list._operate(decimal, "*", Number(numFull)));
     }
   }
 }
