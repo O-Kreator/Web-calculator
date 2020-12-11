@@ -100,8 +100,13 @@ const textFunc = {
       dataFunc.item.replace("0");
     },
     backspace() {
-      if (dataItem === "0")
+      if (btnHistoryFunc.isOperator() || dataItem === "0")
         return ;
+      if (btnHistoryFunc.isEqual()) {
+        textFunc.sub.clear();
+        dataFunc.item.replace(history.recentResult);
+        return ;
+      }
       if (dataItem.length === 1)
         textFunc.main.clear();
       else
@@ -137,6 +142,13 @@ const textFunc = {
         dataFunc.item.replace(history.recentResult);
       }
       dataFunc.item.toggleSign();
+    },
+    fraction() {
+      if (btnHistoryFunc.isOperator() || btnHistoryFunc.isEqual()) {
+        textFunc.sub.clear();
+        dataFunc.item.replace(history.recentResult);
+      }
+      dataFunc.item.fraction();
     }
   }
 }

@@ -47,7 +47,7 @@ export const dataFunc = {
         result = num1Int * num2Int;
       }
       if (operator === "/") {
-        resultDecimalPlace = num1DecimalPlace + num2DecimalPlace;
+        resultDecimalPlace = num1DecimalPlace - num2DecimalPlace;
 
         const num1Int = num1 * Math.pow(10, num1DecimalPlace);
         const num2Int = num2 * Math.pow(10, num2DecimalPlace);
@@ -159,6 +159,9 @@ export const dataFunc = {
     toggleSign() {
       dataItem *= -1;
       dataItem = String(dataItem);
+    },
+    fraction() {
+      dataItem = String(dataFunc.list._operate(1, "/", Number(dataItem)));
     }
   }
 }

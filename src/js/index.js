@@ -9,3 +9,4 @@ import './aside';
 import './mainNumBtn';
 import './mainCtrlBtn';
 import './mainOperatorBtn';
+import './mainShortcutBtn';
