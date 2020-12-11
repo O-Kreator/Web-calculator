@@ -23,9 +23,11 @@ const mainNumBtnFunc = {
       });
     }
     document.addEventListener("keydown", e => {
-      if (helperFunc.isNumber(e.key) && !DOM.mainBtn[`num${e.key}`].disabled) {
-        mainNumBtnFunc.keyDown(e.key, DOM.mainBtn[`num${e.key}`]);
-        btnHistoryFunc.update(DOM.mainBtn[`num${e.key}`]);
+      if (DOM.mainBtn[`num${e.key}`]) {
+        if (helperFunc.isNumber(e.key) && !DOM.mainBtn[`num${e.key}`].disabled) {
+          mainNumBtnFunc.keyDown(e.key, DOM.mainBtn[`num${e.key}`]);
+          btnHistoryFunc.update(DOM.mainBtn[`num${e.key}`]);
+        }
       }
     });
 

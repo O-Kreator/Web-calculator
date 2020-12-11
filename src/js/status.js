@@ -7,6 +7,15 @@ export const history = {
   recentOperator: "="
 }
 
+export const historyFunc = {
+  reset() {
+    history.recentInput = "";
+    history.recentResult = "";
+    btnHistoryFunc.update(null);
+    history.recentOperator = "=";
+  }
+}
+
 export const btnHistoryFunc = {
   update(button) {
     history.recentButton = button;

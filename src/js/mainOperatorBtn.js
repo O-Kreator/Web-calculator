@@ -19,11 +19,11 @@ const mainOperatorBtnFunc = {
     textFunc.sub.calculate();
     textFunc.sub.update();
   },
-  equalKeydown(btn) {
+  equalKeydown() {
     mainOperatorBtnFunc.equal();
 
-    btn.classList.add("pressed");
-    setTimeout(() => { btn.classList.remove("pressed") }, CONST.TIME_SHORT);
+    DOM.mainBtn.equal.classList.add("pressed");
+    setTimeout(() => { DOM.mainBtn.equal.classList.remove("pressed") }, CONST.TIME_SHORT);
   },
 
   init() {
@@ -77,7 +77,8 @@ const mainOperatorBtnFunc = {
     })
     document.addEventListener("keydown", e => {
       if ((e.key === "=" || e.key === "Enter") && !DOM.mainBtn.equal.disabled) {
-        mainOperatorBtnFunc.equalKeydown(DOM.mainBtn.equal);
+        e.preventDefault();
+        mainOperatorBtnFunc.equalKeydown();
         btnHistoryFunc.update(DOM.mainBtn.equal);
       }
     });
