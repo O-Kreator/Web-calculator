@@ -48,7 +48,7 @@ const textFunc = {
       history.recentResult = String(result);
     },
     calculate() {
-      if (btnHistoryFunc.isShortcut()) {
+      if (btnHistoryFunc.isShortcut() || btnHistoryFunc.isToggleSign()) {
         dataFunc.list.input("=");
       } else if (btnHistoryFunc.isOperator()) {
         dataFunc.list.input(textFunc.main.get());
@@ -146,10 +146,10 @@ const textFunc = {
         dataFunc.item.replace(history.recentResult);
       }
       dataFunc.item.toggleSign();
-      if (!btnHistoryFunc.isShortcut())
-        dataFunc.list.input(helperFunc.filterNum(dataItem));
+      if (btnHistoryFunc.isShortcut() || btnHistoryFunc.isToggleSign())
+        dataFunc.list.replaceRecent(helperFunc.filterNum(dataItem) || history.recentOperator === "=");
       else
-        dataFunc.list.replaceRecent(helperFunc.filterNum(dataItem));
+        dataFunc.list.input(helperFunc.filterNum(dataItem));
     },
     percent() {
       if (dataItem === "0")
@@ -159,10 +159,10 @@ const textFunc = {
         dataFunc.item.replace(history.recentResult);
       }
       dataFunc.item.replace(dataFunc.item.percent(dataItem, history.recentResult));
-      if (!btnHistoryFunc.isShortcut())
-        dataFunc.list.input(helperFunc.filterNum(dataItem));
-      else
+      if (btnHistoryFunc.isShortcut() || btnHistoryFunc.isToggleSign() || history.recentOperator === "=")
         dataFunc.list.replaceRecent(helperFunc.filterNum(dataItem));
+      else
+        dataFunc.list.input(helperFunc.filterNum(dataItem));
     },
     fraction() {
       if (btnHistoryFunc.isEqual()) {
@@ -170,10 +170,10 @@ const textFunc = {
         dataFunc.item.replace(history.recentResult);
       }
       dataFunc.item.fraction();
-      if (!btnHistoryFunc.isShortcut())
-        dataFunc.list.input(helperFunc.filterNum(dataItem));
-      else
+      if (btnHistoryFunc.isShortcut() || btnHistoryFunc.isToggleSign() || history.recentOperator === "=")
         dataFunc.list.replaceRecent(helperFunc.filterNum(dataItem));
+      else
+        dataFunc.list.input(helperFunc.filterNum(dataItem));
     },
     square() {
       if (btnHistoryFunc.isEqual()) {
@@ -181,10 +181,10 @@ const textFunc = {
         dataFunc.item.replace(history.recentResult);
       }
       dataFunc.item.square();
-      if (!btnHistoryFunc.isShortcut())
-        dataFunc.list.input(helperFunc.filterNum(dataItem));
-      else
+      if (btnHistoryFunc.isShortcut() || btnHistoryFunc.isToggleSign() || history.recentOperator === "=")
         dataFunc.list.replaceRecent(helperFunc.filterNum(dataItem));
+      else
+        dataFunc.list.input(helperFunc.filterNum(dataItem));
     },
     squareRoot() {
       if (btnHistoryFunc.isEqual()) {
@@ -192,10 +192,10 @@ const textFunc = {
         dataFunc.item.replace(history.recentResult);
       }
       dataFunc.item.squareRoot();
-      if (!btnHistoryFunc.isShortcut())
-        dataFunc.list.input(helperFunc.filterNum(dataItem));
-      else
+      if (btnHistoryFunc.isShortcut() || btnHistoryFunc.isToggleSign() || history.recentOperator === "=")
         dataFunc.list.replaceRecent(helperFunc.filterNum(dataItem));
+      else
+        dataFunc.list.input(helperFunc.filterNum(dataItem));
     }
   }
 }
