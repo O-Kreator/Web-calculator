@@ -24,7 +24,9 @@ const textFunc = {
       dataFunc.list.reset();
     },
     input(text) {
-      if (btnHistoryFunc.isOperator())
+      if (btnHistoryFunc.isShortcut())
+        dataFunc.list.input(text);
+      else if (btnHistoryFunc.isOperator())
         dataFunc.list.replaceRecent(text);
       else if (btnHistoryFunc.isEqual()) {
         dataFunc.list.reset();
@@ -46,7 +48,9 @@ const textFunc = {
       history.recentResult = String(result);
     },
     calculate() {
-      if (btnHistoryFunc.isOperator()) {
+      if (btnHistoryFunc.isShortcut()) {
+        dataFunc.list.input("=");
+      } else if (btnHistoryFunc.isOperator()) {
         dataFunc.list.input(textFunc.main.get());
         history.recentInput = textFunc.main.get();
         dataFunc.list.input("=");
@@ -64,7 +68,7 @@ const textFunc = {
         if (history.recentOperator === "=") {
           dataFunc.list.input(helperFunc.filterNum(dataItem));
           history.recentInput = helperFunc.filterNum(dataItem);
-        } else if (!btnHistoryFunc.isNum() || dataFunc.list.isEmpty()) {
+        } else if ((!btnHistoryFunc.isNum() && !btnHistoryFunc.isShortcut() && !btnHistoryFunc.isToggleSign()) || dataFunc.list.isEmpty()) {
           dataFunc.list.input(helperFunc.filterNum(dataItem));
           dataFunc.list.input(history.recentOperator);
           dataFunc.list.input(history.recentInput);
@@ -127,7 +131,7 @@ const textFunc = {
           dataFunc.item.replace("0.");
         else
           dataFunc.item.replace(text);
-      } else if (btnHistoryFunc.isOperator() || dataItem === "0") {
+      } else if (btnHistoryFunc.isOperator() || btnHistoryFunc.isToggleSign() || btnHistoryFunc.isShortcut() || dataItem === "0") {
         if (text === ".")
           dataFunc.item.replace("0.");
         else
@@ -137,18 +141,48 @@ const textFunc = {
         dataFunc.item.input(text);
     },
     toggleSign() {
-      if (btnHistoryFunc.isOperator() || btnHistoryFunc.isEqual()) {
+      if (btnHistoryFunc.isEqual()) {
         textFunc.sub.clear();
         dataFunc.item.replace(history.recentResult);
       }
       dataFunc.item.toggleSign();
+      if (!btnHistoryFunc.isShortcut())
+        dataFunc.list.input(helperFunc.filterNum(dataItem));
+      else
+        dataFunc.list.replaceRecent(helperFunc.filterNum(dataItem));
     },
     fraction() {
-      if (btnHistoryFunc.isOperator() || btnHistoryFunc.isEqual()) {
+      if (btnHistoryFunc.isEqual()) {
         textFunc.sub.clear();
         dataFunc.item.replace(history.recentResult);
       }
       dataFunc.item.fraction();
+      if (!btnHistoryFunc.isShortcut())
+        dataFunc.list.input(helperFunc.filterNum(dataItem));
+      else
+        dataFunc.list.replaceRecent(helperFunc.filterNum(dataItem));
+    },
+    square() {
+      if (btnHistoryFunc.isEqual()) {
+        textFunc.sub.clear();
+        dataFunc.item.replace(history.recentResult);
+      }
+      dataFunc.item.square();
+      if (!btnHistoryFunc.isShortcut())
+        dataFunc.list.input(helperFunc.filterNum(dataItem));
+      else
+        dataFunc.list.replaceRecent(helperFunc.filterNum(dataItem));
+    },
+    squareRoot() {
+      if (btnHistoryFunc.isEqual()) {
+        textFunc.sub.clear();
+        dataFunc.item.replace(history.recentResult);
+      }
+      dataFunc.item.squareRoot();
+      if (!btnHistoryFunc.isShortcut())
+        dataFunc.list.input(helperFunc.filterNum(dataItem));
+      else
+        dataFunc.list.replaceRecent(helperFunc.filterNum(dataItem));
     }
   }
 }

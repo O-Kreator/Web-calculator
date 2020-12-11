@@ -6,6 +6,17 @@ const mainShortcutBtnFunc = {
   fraction() {
     textFunc.main.fraction();
     textFunc.main.update();
+    textFunc.sub.update();
+  },
+  square() {
+    textFunc.main.square();
+    textFunc.main.update();
+    textFunc.sub.update();
+  },
+  squareRoot() {
+    textFunc.main.squareRoot();
+    textFunc.main.update();
+    textFunc.sub.update();
   },
 
   init() {
@@ -13,6 +24,16 @@ const mainShortcutBtnFunc = {
       mainShortcutBtnFunc.fraction();
       btnHistoryFunc.update(DOM.mainBtn.fraction);
     });
+
+    DOM.mainBtn.square.addEventListener("click", () => {
+      mainShortcutBtnFunc.square();
+      btnHistoryFunc.update(DOM.mainBtn.square);
+    });
+
+    DOM.mainBtn.squareRoot.addEventListener("click", () => {
+      mainShortcutBtnFunc.squareRoot();
+      btnHistoryFunc.update(DOM.mainBtn.squareRoot);
+    })
   }
 }
 

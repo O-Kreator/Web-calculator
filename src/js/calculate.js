@@ -162,6 +162,12 @@ export const dataFunc = {
     },
     fraction() {
       dataItem = String(dataFunc.list._operate(1, "/", Number(dataItem)));
+    },
+    square() {
+      dataItem = String(dataFunc.list._operate(Number(dataItem), "*", Number(dataItem)));
+    },
+    squareRoot() {
+      dataItem = String(Math.pow(Number(dataItem), 0.5));
     }
   }
 }

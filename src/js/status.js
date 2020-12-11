@@ -45,9 +45,17 @@ export const btnHistoryFunc = {
     return (history.recentButton === DOM.mainBtn.dot);
   },
   isToggleSign() {
-    return (histroy.recentButton === DOM.mainBtn.toggleSign);
+    return (history.recentButton === DOM.mainBtn.toggleSign);
   },
-  isOther() {
-    return (!btnHistoryFunc.isNum() && !btnHistoryFunc.isOperator() && !btnHistoryFunc.isEqual() && !btnHistoryFunc.isDot());
+  isShortcut() {
+    if (history.recentButton === DOM.mainBtn.percent)
+      return true;
+    if (history.recentButton === DOM.mainBtn.fraction)
+      return true;
+    if (history.recentButton === DOM.mainBtn.square)
+      return true;
+    if (history.recentButton === DOM.mainBtn.squareRoot)
+      return true;
+    return false;
   }
 }
