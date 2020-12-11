@@ -80,6 +80,8 @@ const textFunc = {
 
       textFunc.main.replace(result);
       history.recentResult = String(result);
+
+      dataFunc.item.reset();
     }
   },
 
@@ -115,7 +117,7 @@ const textFunc = {
       if (btnHistoryFunc.isEqual()) {
         textFunc.sub.clear();
         if (text === ".")
-          dataFunc.item.replace("0.")
+          dataFunc.item.replace("0.");
         else
           dataFunc.item.replace(text);
       } else if (btnHistoryFunc.isOperator() || dataItem === "0") {
