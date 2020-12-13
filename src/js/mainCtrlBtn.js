@@ -1,6 +1,6 @@
 import { DOM } from './_config.js';
 import textFunc from './text';
-import { historyFunc } from './status';
+import { historyFunc } from './history';
 
 export const mainCtrlBtnFunc = {
   clearEntry() {

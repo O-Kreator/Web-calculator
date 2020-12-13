@@ -1,6 +1,6 @@
 import { DOM } from './_config.js';
 import textFunc from './text';
-import { btnHistoryFunc } from './status';
+import { btnHistoryFunc } from './history';
 
 const mainShortcutBtnFunc = {
   toggleSign() {
