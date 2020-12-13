@@ -2,7 +2,7 @@ import { DOM } from './_config.js';
 import { dataList, dataItem, dataFunc } from './calculate.js';
 
 import helperFunc from './helper';
-import { history, btnHistoryFunc } from './history';
+import { history, btnHistoryFunc, historyFunc } from './history';
 
 const textFunc = {
   sub: {
@@ -187,15 +187,17 @@ const textFunc = {
       _template(func) {
         if (btnHistoryFunc.isEqual()) {
           textFunc.sub.clear();
-          dataFunc.item.replace(history.recentResult);
+          dataFunc.item.replace(history.recentInput);
         }
 
         func();
 
         if (btnHistoryFunc.isShortcut() || btnHistoryFunc.isToggleSign() || history.recentOperator === "=")
           dataFunc.list.replaceRecent(helperFunc.filterNum(dataItem));
-        else
+        else {
           dataFunc.list.input(helperFunc.filterNum(dataItem));
+          history.recentInput = helperFunc.filterNum(dataItem);
+        }
       },
       toggleSign() {
         textFunc.main.shortcut._template(() => { dataFunc.item.toggleSign(); });
@@ -203,7 +205,7 @@ const textFunc = {
       percent() {
         if (dataItem === "0")
           dataFunc.item.replace("0");
-        else
+        
           textFunc.main.shortcut._template(() => {
             dataFunc.item.replace(dataFunc.item.percent(dataItem, history.recentResult));
           });
