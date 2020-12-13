@@ -9,6 +9,8 @@ export const mainOperatorBtnFunc = {
     textFunc.sub.preCalculate();
     textFunc.sub.update();
 
+    errorHandleFunc.check();
+
     if (text === "+")
       btnHistoryFunc.update(DOM.mainBtn.plus);
     if (text === "-")
@@ -30,6 +32,8 @@ export const mainOperatorBtnFunc = {
     } else {
       textFunc.sub.calculate();
       textFunc.sub.update();
+
+      errorHandleFunc.check();
       
       btnHistoryFunc.update(DOM.mainBtn.equal);
     }

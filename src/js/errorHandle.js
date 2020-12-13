@@ -24,6 +24,10 @@ const errorHandleFunc = {
   isError() {
     return (errorStatus !== "")
   },
+  check() {
+    if (this.isError())
+      DOM.text.main.value = "Error";
+  },
   set(errCode) {
     errorStatus = errCode;
     if (this.isError())

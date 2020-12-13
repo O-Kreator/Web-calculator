@@ -1,6 +1,7 @@
 import { DOM } from './_config.js';
 import textFunc from './text';
 import { btnHistoryFunc } from './history';
+import errorHandleFunc from './errorHandle';
 
 const mainShortcutBtnFunc = {
   toggleSign() {
@@ -22,6 +23,8 @@ const mainShortcutBtnFunc = {
     textFunc.main.update();
     textFunc.sub.update();
 
+    errorHandleFunc.check();
+    
     btnHistoryFunc.update(DOM.mainBtn.fraction);
   },
   square() {
