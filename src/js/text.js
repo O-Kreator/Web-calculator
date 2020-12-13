@@ -2,7 +2,7 @@ import { DOM } from './_config.js';
 import { dataList, dataItem, dataFunc } from './calculate.js';
 
 import helperFunc from './helper';
-import { history, btnHistoryFunc } from './status';
+import { history, btnHistoryFunc } from './history';
 
 const textFunc = {
   sub: {
