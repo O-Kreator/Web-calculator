@@ -10,3 +10,5 @@ import './mainNumBtn';
 import './mainCtrlBtn';
 import './mainOperatorBtn';
 import './mainShortcutBtn';
+
+import './keydown';
