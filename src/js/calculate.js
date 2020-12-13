@@ -25,6 +25,8 @@ export const dataFunc = {
     let resultDecimalPlace = 0;
 
     if (operator === "+" || operator === "-") {
+      resultDecimalPlace = (num1DecimalPlace > num2DecimalPlace) ? num1DecimalPlace : num2DecimalPlace;
+      
       const num1Int = num1 * Math.pow(10, resultDecimalPlace);
       const num2Int = num2 * Math.pow(10, resultDecimalPlace);
 
@@ -32,8 +34,6 @@ export const dataFunc = {
         result = num1Int + num2Int;
       if (operator === "-")
         result = num1Int - num2Int;
-      
-      resultDecimalPlace = (num1DecimalPlace > num2DecimalPlace) ? num1DecimalPlace : num2DecimalPlace;
     }
     if (operator === "*" || operator === "/") {
       const num1Int = num1 * Math.pow(10, num1DecimalPlace);
