@@ -40,7 +40,7 @@ const mainShortcutBtnFunc = {
   },
 
   init() {
-    DOM.mainBtn.toggleSign.addEventListener("click", () => { mainNumBtnFunc.toggleSign(); });
+    DOM.mainBtn.toggleSign.addEventListener("click", () => { mainShortcutBtnFunc.toggleSign(); });
     DOM.mainBtn.percent.addEventListener("click", () => { mainShortcutBtnFunc.percent(); });
     DOM.mainBtn.fraction.addEventListener("click", () => { mainShortcutBtnFunc.fraction(); });
     DOM.mainBtn.square.addEventListener("click", () => { mainShortcutBtnFunc.square(); });
