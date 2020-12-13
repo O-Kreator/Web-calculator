@@ -1,9 +1,19 @@
 import { DOM } from './_config.js';
 import textFunc from './text';
-import { btnHistoryFunc } from './history';
+import { historyFunc, btnHistoryFunc } from './history';
+import errorHandleFunc from './errorHandle';
 
 export const mainNumBtnFunc = {
   event(text) {
+    if (errorHandleFunc.isError()) {
+      errorHandleFunc.release();
+
+      textFunc.main.clear();
+      textFunc.sub.clear();
+      
+      historyFunc.reset();
+    }
+
     textFunc.main.input(String(text));
     textFunc.main.update();
     textFunc.sub.update();

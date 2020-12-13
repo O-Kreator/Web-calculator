@@ -2,7 +2,7 @@ import { DOM } from './_config.js';
 import { dataList, dataItem, dataFunc } from './calculate.js';
 
 import helperFunc from './helper';
-import { history, btnHistoryFunc, historyFunc } from './history';
+import { history, btnHistoryFunc } from './history';
 
 const textFunc = {
   sub: {
@@ -167,14 +167,16 @@ const textFunc = {
 
       // If user used operator button, or dataItem is "0",
       // The new number should be input.
-      else if (btnHistoryFunc.isOperator() || dataItem === "0")
-        (text === ".") ? dataFunc.item.replace("0.") : dataFunc.item.replace(text) ;
+      else if (btnHistoryFunc.isOperator() || dataItem === "0") {
+        (text === ".") ? dataFunc.item.replace("0.") : dataFunc.item.replace(text);
+
+      }
       
       // If user used equal button,
       // The new number should be input, and new operation should be started.
       else if (btnHistoryFunc.isEqual()) {
         textFunc.sub.clear();
-        (text === ".") ? dataFunc.item.replace("0.") : dataFunc.item.replace(text) ;
+        (text === ".") ? dataFunc.item.replace("0.") : dataFunc.item.replace(text);
       }
       
       // In this case user used other buttons such as number or dot, and dataItem is not "0".

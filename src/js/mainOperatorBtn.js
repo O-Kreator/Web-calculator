@@ -1,6 +1,7 @@
 import { DOM } from './_config.js';
 import textFunc from './text';
-import { btnHistoryFunc } from './history';
+import { historyFunc, btnHistoryFunc } from './history';
+import errorHandleFunc from './errorHandle';
 
 export const mainOperatorBtnFunc = {
   operator(text) {
@@ -18,10 +19,20 @@ export const mainOperatorBtnFunc = {
       btnHistoryFunc.update(DOM.mainBtn.divide);
   },
   equal() {
-    textFunc.sub.calculate();
-    textFunc.sub.update();
+    if (errorHandleFunc.isError()) {
+      errorHandleFunc.release();
 
-    btnHistoryFunc.update(DOM.mainBtn.equal);
+      textFunc.main.clear();
+      textFunc.sub.clear();
+      
+      historyFunc.reset();
+      textFunc.sub.update();
+    } else {
+      textFunc.sub.calculate();
+      textFunc.sub.update();
+      
+      btnHistoryFunc.update(DOM.mainBtn.equal);
+    }
   },
 
   init() {

@@ -1,5 +1,5 @@
 import helperFunc from './helper';
-
+import errorHandleFunc from './errorHandle'
 
 export const dataList = [];
 export let dataItem = "0"
@@ -14,9 +14,9 @@ export const dataFunc = {
     
     try {
       if (operator === "/" && Number(num2) === 0)
-      throw "Can't divide with 0";
+      throw "divideByZero";
     } catch (error) {
-      console.error(error);
+      errorHandleFunc.set(error);
     }
 
     const num1DecimalPlace = countDecimalPlace(num1);
@@ -69,11 +69,11 @@ export const dataFunc = {
       }
       try {
         if (helperFunc.isOperator(text) && helperFunc.isOperator(dataList[dataList.length - 1]))
-          throw "Operator cannot be input next to operator." ;
+          throw "cannotPutItemNextToSameType" ;
         if (helperFunc.isNumber(text) && helperFunc.isNumber(dataList[dataList.length - 1]))
-          throw "Number cannot be input next to number.";
+          throw "cannotPutItemNextToSameType";
       } catch (error) {
-        console.error(error);
+        errorHandleFunc.set(error);
       }
       
       dataList.push(text);
@@ -87,11 +87,11 @@ export const dataFunc = {
       const recentItem = dataList[dataList.length - 1];
       try {
         if (helperFunc.isOperator(text) && helperFunc.isNumber(recentItem))
-          throw "Operator cannot replace number.";
+          throw "cannotRelaceRecentItem";
         if (helperFunc.isNumber(text) && helperFunc.isOperator(recentItem))
-          throw "Number cannot replace operator.";
+          throw "cannotRelaceRecentItem";
       } catch (error) {
-        console.error(error);
+        errorHandleFunc.set(error);
       }
       
       dataFunc.list.backspace();
@@ -106,17 +106,17 @@ export const dataFunc = {
       let result = 0;
       try {
         if (helperFunc.isOperator(dataList[0]))
-          throw "Misordered item in dataList.";
+          throw "misorderedDataList";
 
         result = Number(dataList[0]);
         for (let i = 1; i < dataList.length - 1; i += 2) {
           if (!helperFunc.isOperator(dataList[i]) || !helperFunc.isNumber(dataList[i + 1]))
-            throw "Misordered item in dataList.";
+            throw "misorderedDataList";
 
           result = dataFunc._operate(result, dataList[i], Number(dataList[i + 1]));
         }
       } catch (error) {
-        console.error(error);
+        errorHandleFunc.set(error);
       }
 
       return String(result);
