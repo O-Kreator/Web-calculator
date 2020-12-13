@@ -29,7 +29,7 @@ export const mainOperatorBtnFunc = {
     DOM.mainBtn.minus.addEventListener("click", () => { mainOperatorBtnFunc.operator("-"); });
     DOM.mainBtn.multiply.addEventListener("click", () => { mainOperatorBtnFunc.operator("*"); });
     DOM.mainBtn.divide.addEventListener("click", () => { mainOperatorBtnFunc.operator("/"); });
-    DOM.mainBtn.equal.addEventListener("click", () => { mainOperatorBtnFunc.equal(); });
+    DOM.mainBtn.equal.addEventListener("click", mainOperatorBtnFunc.equal);
   }
 }
 
