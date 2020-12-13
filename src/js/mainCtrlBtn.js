@@ -1,20 +1,41 @@
 import { DOM } from './_config.js';
 import textFunc from './text';
 import { historyFunc } from './history';
+import errorHandleFunc from './errorHandle';
 
 export const mainCtrlBtnFunc = {
   clearEntry() {
-    textFunc.main.clear();
+    if (errorHandleFunc.isError()) {
+      errorHandleFunc.release();
+
+      textFunc.main.clear();
+      textFunc.sub.clear();
+      
+      historyFunc.reset();
+    } else
+      textFunc.main.clear();
   },
   clear() {
+    if (errorHandleFunc.isError())
+      errorHandleFunc.release();
+    
     textFunc.main.clear();
     textFunc.sub.clear();
 
     historyFunc.reset();
   },
   backspace() {
-    textFunc.main.backspace();
-    textFunc.main.update();
+    if (errorHandleFunc.isError()) {
+      errorHandleFunc.release();
+
+      textFunc.main.clear();
+      textFunc.sub.clear();
+      
+      historyFunc.reset();
+    } else {
+      textFunc.main.backspace();
+      textFunc.main.update();
+    }
   },
 
   init() {
