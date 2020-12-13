@@ -1,0 +1,65 @@
+/* Error Notification Wrapper */
+
+#errorNotificationWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: fixed;
+  top: calc(var(--space-l) * -1);
+  left: 0;
+  right: 0;
+  height: var(--space-l);
+  padding: 0 var(--space-xs) 0 var(--space-s);
+
+  color: var(--color-error-text);
+  font-size: .6rem;
+  line-height: var(--space-l);
+  
+  background-color: var(--color-error-background);
+
+  transition-duration: var(--time-long);
+
+  @include media-mobile-s-only {
+    font-size: .7rem;
+  }
+}
+
+body.error #errorNotificationWrapper {
+  top: 0;
+}
+
+
+/* Close Button of Error Notification */
+
+#errorCloseBtn {
+  position: relative;
+  top: 0;
+  width: 1rem;
+  height: 1rem;
+
+  transition-duration: var(--time-short);
+  pointer-events: none;
+
+  & > div {
+    position: absolute;
+    top: .5rem;
+    left: .25rem;
+
+    width: .5rem;
+    height: 1px;
+    background-color: var(--color-error-text);
+
+    &:nth-child(1) {
+      transform: rotate(45deg);
+    }
+
+    &:nth-child(2) {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+body.error #errorCloseBtn {
+  pointer-events: initial;
+}

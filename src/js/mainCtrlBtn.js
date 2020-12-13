@@ -14,6 +14,8 @@ export const mainCtrlBtnFunc = {
       historyFunc.reset();
     } else
       textFunc.main.clear();
+
+    errorHandleFunc.check();
   },
   clear() {
     if (errorHandleFunc.isError())
@@ -23,6 +25,8 @@ export const mainCtrlBtnFunc = {
     textFunc.sub.clear();
 
     historyFunc.reset();
+
+    errorHandleFunc.check();
   },
   backspace() {
     if (errorHandleFunc.isError()) {
@@ -36,6 +40,8 @@ export const mainCtrlBtnFunc = {
       textFunc.main.backspace();
       textFunc.main.update();
     }
+    
+    errorHandleFunc.check();
   },
 
   init() {

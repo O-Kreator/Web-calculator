@@ -2,7 +2,7 @@
 
 #navMenuBtn {
   z-index: 20;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 
@@ -91,6 +91,14 @@
   }
 }
 
+body.error #navMenuBtn {
+  top: var(--space-l);
+
+  &:active {
+    top: calc(var(--space-l) + var(--space-xxs)) !important;
+  }
+}
+
 
 /* Navigation Top */
 
@@ -114,6 +122,10 @@
     font-size: 1rem;
     line-height: 3rem;
   }
+}
+
+body.error #navTop {
+  top: var(--space-l);
 }
 
 
@@ -184,5 +196,9 @@ body {
 
   &.menu_shown #navContentWrapper {
     left: 0;
+  }
+
+  &.error #navContentWrapper {
+    padding-top: calc(var(--space-xxl) + var(--space-l));
   }
 }

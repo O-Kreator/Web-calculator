@@ -7,6 +7,10 @@ export const CONST = {
 
 export const DOM = {
   body: document.body,
+  error: {
+    text: document.getElementById("errorMessage"),
+    closeBtn: document.getElementById("errorCloseBtn")
+  },
   nav: {
     button: document.getElementById("navMenuBtn"),
     top: document.getElementById("navTop"),

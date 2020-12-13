@@ -9,6 +9,8 @@
   --color-button-strong: rgba(255, 255, 255, .7);
   --color-button-hover: rgba(40, 30, 30, .1);
   --color-inner-shadow: rgba(40, 30, 30, .1);
+  --color-error-text: rgb(120, 15, 15);
+  --color-error-background: rgb(255, 180, 180);
 };
 
 @mixin color-dark-theme {
@@ -20,6 +22,8 @@
   --color-button-strong: rgba(0, 0, 0, .7);
   --color-button-hover: rgba(233, 230, 232, .1);
   --color-inner-shadow: rgba(233, 230, 232, .1);
+  --color-error-text: rgb(255, 180, 180);
+  --color-error-background: rgb(120, 15, 15);
 }
 
 body {

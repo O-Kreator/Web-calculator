@@ -22,6 +22,8 @@ export const mainNumBtnFunc = {
       btnHistoryFunc.update(DOM.mainBtn.dot);
     else
       btnHistoryFunc.update(DOM.mainBtn[`num${text}`]);
+    
+    errorHandleFunc.check();
   },
 
   init() {
