@@ -1,9 +1,11 @@
 <p align="center">
-<strong style="font-size: 1.2rem">Simple calculator app made with JavaScript. 🧮</strong>
+<strong style="font-size: 1.5rem">Simple calculator app made with JavaScript. 🧮</strong>
 <br><br>
 <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FO-Kreator%2FWeb-calculator&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false">
 </p>
-<br><br>
+
+<br>
+<br>
 
 ## installation
 
@@ -19,9 +21,6 @@ yarn deploy
 ```
 
 <br>
-
----
-
 <br>
 
 ## Features
@@ -39,9 +38,6 @@ yarn deploy
   - Turn on and off dark mode by toggling the button in side menu, and it's cool. 😎
 
 <br>
-
----
-
 <br>
 
 ## Spec
@@ -51,9 +47,6 @@ yarn deploy
 - MIT
 
 <br>
-
----
-
 <br>
 
 ### Feel free to comment!
