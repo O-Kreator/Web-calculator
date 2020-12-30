@@ -1,5 +1,5 @@
 {
-  "name": "Nyong-calculator",
+  "name": "Web-calculator",
   "version": "0.0.1",
   "description": "Simple calculator app using JavaScript",
   "main": "./src/index.js",
@@ -17,8 +17,8 @@
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html",
-    "predeploy": "rm -rf dist && parcel build index.html --public-url /Nyong-calculator",
+    "predeploy": "rm -rf dist && parcel build index.html --public-url /Web-calculator",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://o-kreator.github.io/Nyong-calculator"
+  "homepage": "https://o-kreator.github.io/Web-calculator"
 }
