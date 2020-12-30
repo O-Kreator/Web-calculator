@@ -33,4 +33,4 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{"./_config.js":"epnb","./mainNumBtn":"FdOE","./mainCtrlBtn":"eQhQ","./mainOperatorBtn":"FcK6","./helper.js":"PHJk"}],"mahc":[function(require,module,exports) {
 "use strict";require("./../scss/index.scss"),require("./nav"),require("./navcontent"),require("./aside"),require("./mainNumBtn"),require("./mainCtrlBtn"),require("./mainOperatorBtn"),require("./mainShortcutBtn"),require("./keydown");
 },{"./../scss/index.scss":"HYMH","./nav":"nfFM","./navcontent":"kkm1","./aside":"rbaR","./mainNumBtn":"FdOE","./mainCtrlBtn":"eQhQ","./mainOperatorBtn":"FcK6","./mainShortcutBtn":"Imke","./keydown":"D3DA"}]},{},["mahc"], null)
-//# sourceMappingURL=/Nyong-calculator/js.826d6203.js.map
+//# sourceMappingURL=/Web-calculator/js.826d6203.js.map
