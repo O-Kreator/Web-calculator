@@ -1,7 +1,7 @@
 <p align="center">
+<img src="https://user-images.githubusercontent.com/46087960/103330168-ab5c2700-4aa3-11eb-9d71-cc44a221f37b.png">
+<br>
 <img src="https://user-images.githubusercontent.com/46087960/103329827-f8d79480-4aa1-11eb-9b93-7732dd99669a.png">
-<br><br>
-<strong><font size="6">Simple calculator app made with JavaScript. 🧮</font></strong>
 <br><br>
 <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FO-Kreator%2FWeb-calculator&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false">
 </p>
