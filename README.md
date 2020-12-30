@@ -22,7 +22,7 @@ yarn deploy
 ## Features
 
 - **Operation in order of entry**
-  - If you input `6 + 3 * 2`, it results `36`, not `12`.
+  - If you input `6 + 3 * 2`, it results `18`, not `12`.
   - Unlike scientific calculator, This executes numbers and operators in order of your input.
   - This is because it copied almost all of features of calculator application in Windows 10.
 
